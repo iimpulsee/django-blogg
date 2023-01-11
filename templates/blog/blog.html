@@ -1,0 +1,26 @@
+{% load static %}
+<html>
+  <head>
+    <title>Блог про бронетехнику</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all">
+  </head>
+<body>
+<div class="posti">
+<a>ПЕХОТНАЯ БРОНИРОВАННАЯ ТЕХНИКА</a>
+</div>
+    {% for post in post_list %}
+          <div class="title">
+              <h3><a href="{{ post.id }}">{{ post.title }}</a></h3>
+          </div>
+          <div class="desc">
+              <p>{{ post.description }}</p>
+          </div>
+    <a href="#"><img src="{{ post.img.url }}" width="300px"></a>
+          <div class="author">
+              <p>Автор: {{ post.author }}</p>
+          </div>
+    {% endfor %}
+</body>
+</html>
